@@ -8,7 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 sheet_url = config("SHEET_URL")
-credentials_path = "json/name_of_your_json.json"
+credentials_path = "json/name_of_your_json_file.json"
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 gc = gspread.authorize(credentials)
@@ -102,8 +102,14 @@ async def save_answers(msg: types.Message, state: FSMContext):
 
 
 def register(dp: Dispatcher):
-    questions = [question_1, question_2, question_3, question_4, question_5,
-                 question_6, question_7, question_8, question_9, question_10]
-    for i, question in enumerate(questions, 1):
-        dp.register_message_handler(question, state=getattr(states.Questions, f'question_{i}'))
+    dp.register_callback_query_handler(question_1, text='questions_start', state=states.Questions.question_1)
+    dp.register_message_handler(question_2, state=states.Questions.question_2)
+    dp.register_message_handler(question_3, state=states.Questions.question_3)
+    dp.register_message_handler(question_4, state=states.Questions.question_4)
+    dp.register_message_handler(question_5, state=states.Questions.question_5)
+    dp.register_message_handler(question_6, state=states.Questions.question_6)
+    dp.register_message_handler(question_7, state=states.Questions.question_7)
+    dp.register_message_handler(question_8, state=states.Questions.question_8)
+    dp.register_message_handler(question_9, state=states.Questions.question_9)
+    dp.register_message_handler(question_10, state=states.Questions.question_10)
     dp.register_message_handler(save_answers, state=states.Questions.save_answers)
