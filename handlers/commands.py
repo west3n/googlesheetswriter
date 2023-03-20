@@ -6,7 +6,7 @@ from configurations import states
 async def bot_start(msg: types.Message):
     await msg.delete()
     name = msg.from_user.first_name
-    await msg.answer(f"Hello, {name}! Press 'Start' for test beginning",
+    await msg.answer(f"Hello, {name}! Press 'Start' to begin the test.",
                      reply_markup=inline.questions_start())
     await states.Questions.question_1.set()
 
