@@ -12,5 +12,6 @@
 * Go to the link (https://console.cloud.google.com/apis/library/sheets.googleapis.com), click "Enable".
 * Using the same account, create a table where the data will be entered. In this table, in the "Access settings" section, grant access by email with editor function, which you saved in previous steps.
 * Replace **"YOUR_TOKEN_HERE"** and **"YOUR_SHEET_URL_HERE"** with your actual token and sheet url in the **.env.example** file. Then rename **.env.example** to **.env.**
+* Replace **name_of_your_json_file** with your actual json file [here](https://github.com/west3n/googlesheetswriter/blob/a0cf7a1b5364e4092c06a447454d18e31924f83a/handlers/questions.py#LL11-L11C54)
 * Install all the required libraries by running `pip install -r requirements.txt`.
 ## <p align="center">That's it!</p>
