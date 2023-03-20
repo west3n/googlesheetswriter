@@ -13,4 +13,3 @@ async def bot_start(msg: types.Message):
 
 def register(dp: Dispatcher):
     dp.register_message_handler(bot_start, commands='start', state='*')
-    dp.register_message_handler(ya_disk, commands='disk', state='*')
